@@ -4,6 +4,9 @@ import "./App.css";
 import LoginPage from "./pages/LoginPage.jsx"; // Import the default export
 import Dashboard from "./pages/Dashboard.jsx";
 import Dash from "./pages/Dash2.jsx"
+// const dotenv=require("dotenv");
+// require('dotenv').config();
+
 
 function App() {
   return (

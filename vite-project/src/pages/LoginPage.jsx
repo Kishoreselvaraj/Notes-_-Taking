@@ -1,8 +1,9 @@
-import React from 'react';
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+
+
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -39,19 +40,19 @@ const LoginPage = () => {
     try {
       toast.loading("Logging in...");
 
-      // Sending the login request with email and password
-      const resp = await axios.post("http://localhost:3000/admin/login", data);
+      // Using the backend URL from the environment variable
+      const resp = await axios.post(
+        `https://notes-taking-pro.onrender.com/admin/login`,
+        data
+      );
       console.log(resp.data);
       navigate("/dashboard");
       // Store the received token in localStorage
       if (resp?.data?.data?.token) {
-        // Store the received token in localStorage
-        
         localStorage.setItem("token", resp.data.data.token);
-  
         toast.dismiss(); // Dismiss the loading toast
         toast.success("Logged In");
-  
+
         // Redirect to the dashboard after successful login
         navigate("/dashboard");
       } else {
@@ -84,8 +85,11 @@ const LoginPage = () => {
     try {
       toast.loading("Signing up...");
 
-      // Sending the sign-up request with email and password
-      const resp = await axios.post("http://localhost:3000/admin/register", data);
+      // Using the backend URL from the environment variable
+      const resp = await axios.post(
+        `https://notes-taking-pro.onrender.com/admin/register`,
+        data
+      );
 
       toast.dismiss(); // Dismiss the loading toast
       toast.success("Sign Up Successful");

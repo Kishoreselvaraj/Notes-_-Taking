@@ -11,7 +11,7 @@ const app=express();
 app.use(express.json());
 const PORT=3000;
 app.use(cors({
-    origin: "http://localhost:5173",  // Adjust to your frontend port
+    origin: "*",  // Adjust to your frontend port
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
